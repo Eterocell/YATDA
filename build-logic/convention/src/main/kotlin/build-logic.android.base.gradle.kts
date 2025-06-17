@@ -7,8 +7,8 @@ plugins {
 
 configureAndroidCommon {
     namespace = androidNamespace
-    compileSdk = 35
-    buildToolsVersion = "35.0.0"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     defaultConfig {
         minSdk = 24
     }
@@ -23,4 +23,4 @@ val Project.androidNamespace
         path
             .replace(":", ".")
             .let { if (it == ".app") "" else it.replace("-", ".") }
-            .let { extra["aneon.project.group"] as String + it }
+            .let { extra["yatda.project.group"] as String + it }

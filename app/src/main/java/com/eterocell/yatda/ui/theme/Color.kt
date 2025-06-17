@@ -1,4 +1,4 @@
-package com.eterocell.aneon.ui.theme
+package com.eterocell.yatda.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.eterocell.aneon.ui.theme
+package com.eterocell.yatda.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -34,7 +34,7 @@ private val LightColorScheme =
     )
 
 @Composable
-fun ANeonTheme(
+fun YATDATheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

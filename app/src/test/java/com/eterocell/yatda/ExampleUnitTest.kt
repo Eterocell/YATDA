@@ -1,4 +1,4 @@
-package com.eterocell.aneon
+package com.eterocell.yatda
 
 import org.junit.Assert.*
 import org.junit.Test

@@ -15,5 +15,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ANeon"
+rootProject.name = "YATDA"
 include(":app")
