@@ -6,13 +6,14 @@ import com.eterocell.gradle.dsl.gradleVersionCatalogs
 import com.eterocell.gradle.dsl.intelliJIDEARunConfiguration
 import com.eterocell.gradle.dsl.kotlin
 import com.eterocell.gradle.dsl.kotlinGradle
+import com.eterocell.gradle.dsl.libs
 
 plugins {
     id("build-logic.root-project.base")
     id("com.diffplug.spotless")
 }
 
-val ktlintVersion = "1.6.0"
+val ktlintVersion: String = libs.findVersion("ktlint").get().requiredVersion
 val genCopyright = false
 
 allprojects {
