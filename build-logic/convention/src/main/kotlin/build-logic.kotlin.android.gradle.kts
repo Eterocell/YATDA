@@ -7,7 +7,7 @@ plugins {
 
 kotlinCompile {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_1_8
+        jvmTarget = JvmTarget.JVM_11
 
         val warningsAsErrors: String? by project
         allWarningsAsErrors = warningsAsErrors.toBoolean()
@@ -15,6 +15,7 @@ kotlinCompile {
             listOf(
                 "-opt-in=kotlin.RequiresOptIn",
                 "-opt-in=kotlinx.coroutines.FlowPreview",
+                "-opt-in=kotlin.uuid.ExperimentalUuidApi",
             )
     }
 }

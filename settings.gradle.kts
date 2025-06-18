@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -16,4 +18,13 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "YATDA"
-include(":app")
+include(
+    ":app",
+    ":core:common",
+    ":core:data",
+    ":core:database",
+    ":core:design",
+    ":core:model",
+    ":core:ui",
+    ":feature:todo"
+)
