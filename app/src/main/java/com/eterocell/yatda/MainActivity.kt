@@ -19,9 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             YATDATheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    TodoListScreen(modifier = Modifier.padding(innerPadding))
-                }
+                TodoListScreen()
             }
         }
     }

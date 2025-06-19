@@ -32,7 +32,7 @@ class TodoListViewModel
                 .debounce(200) // if you want debounce search
                 .flatMapLatest { query ->
                     if (query.isBlank()) {
-                        repository.getIncompleteTodos()
+                        repository.getAllTodos()
                     } else {
                         repository.searchTodos(query)
                     }
