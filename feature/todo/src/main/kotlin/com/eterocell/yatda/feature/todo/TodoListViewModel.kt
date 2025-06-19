@@ -19,53 +19,64 @@ import javax.inject.Inject
 
 @HiltViewModel
 @OptIn(ExperimentalCoroutinesApi::class)
-class TodoListViewModel @Inject constructor(
-    private val repository: TodoRepository,
-) : ViewModel() {
+class TodoListViewModel
+    @Inject
+    constructor(
+        private val repository: TodoRepository,
+    ) : ViewModel() {
+        private val _searchQuery = MutableStateFlow("")
+        val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
 
-    private val _searchQuery = MutableStateFlow("")
-    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+        val todos: StateFlow<List<TodoItem>> =
+            _searchQuery
+                .debounce(200) // if you want debounce search
+                .flatMapLatest { query ->
+                    if (query.isBlank()) {
+                        repository.getIncompleteTodos()
+                    } else {
+                        repository.searchTodos(query)
+                    }
+                }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
-    val todos: StateFlow<List<TodoItem>> = _searchQuery
-        .debounce(200) // if you want debounce search
-        .flatMapLatest { query ->
-            if (query.isBlank()) repository.getIncompleteTodos()
-            else repository.searchTodos(query)
+        fun updateSearchQuery(query: String) {
+            _searchQuery.value = query
         }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
-    fun updateSearchQuery(query: String) {
-        _searchQuery.value = query
-    }
+        fun toggleCompletion(todo: TodoItem) {
+            viewModelScope.launch {
+                if (todo.isCompleted) {
+                    repository.unmarkAsCompleted(todo)
+                } else {
+                    repository.markAsCompleted(todo)
+                }
+            }
+        }
 
-    fun toggleCompletion(todo: TodoItem) {
-        viewModelScope.launch {
-            if (todo.isCompleted) repository.unmarkAsCompleted(todo)
-            else repository.markAsCompleted(todo)
+        fun deleteTodo(todo: TodoItem) {
+            viewModelScope.launch {
+                repository.delete(todo)
+            }
+        }
+
+        fun addTodo(
+            title: String,
+            description: String? = null,
+        ) {
+            viewModelScope.launch {
+                val now = Clock.System.now()
+                val todo =
+                    TodoItem(
+                        id = null, // mapper will generate UUID
+                        creationInstant = now,
+                        title = title,
+                        description = description,
+                        isCompleted = false,
+                        completedDateInstant = null,
+                        lastModifiedInstant = now,
+                        relevantInstant = now,
+                        isImportant = false,
+                    )
+                repository.upsert(todo)
+            }
         }
     }
-
-    fun deleteTodo(todo: TodoItem) {
-        viewModelScope.launch {
-            repository.delete(todo)
-        }
-    }
-
-    fun addTodo(title: String, description: String? = null) {
-        viewModelScope.launch {
-            val now = Clock.System.now()
-            val todo = TodoItem(
-                id = null, // mapper will generate UUID
-                creationInstant = now,
-                title = title,
-                description = description,
-                isCompleted = false,
-                completedDateInstant = null,
-                lastModifiedInstant = now,
-                relevantInstant = now,
-                isImportant = false,
-            )
-            repository.upsert(todo)
-        }
-    }
-}

@@ -15,16 +15,14 @@ import kotlinx.coroutines.CoroutineScope
 fun rememberYATDAAppState(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
-): YATDAAppState {
-    return remember(
-        navController,
-        coroutineScope,
-    ) {
-        YATDAAppState(
-            navController = navController,
-            coroutineScope = coroutineScope,
-        )
-    }
+): YATDAAppState = remember(
+    navController,
+    coroutineScope,
+) {
+    YATDAAppState(
+        navController = navController,
+        coroutineScope = coroutineScope,
+    )
 }
 
 @Stable
@@ -36,8 +34,9 @@ class YATDAAppState(
 
     val currentDestination: NavDestination?
         @Composable get() {
-            val currentEntry = navController.currentBackStackEntryFlow
-                .collectAsState(initial = null)
+            val currentEntry =
+                navController.currentBackStackEntryFlow
+                    .collectAsState(initial = null)
 
             return currentEntry.value?.destination.also { destination ->
                 if (destination != null) {

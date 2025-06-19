@@ -5,10 +5,8 @@ import kotlin.uuid.Uuid
 
 class UuidConverter {
     @TypeConverter
-    fun fromUuid(uuid: Uuid): ByteArray =
-        uuid.toByteArray()
+    fun fromUuid(uuid: Uuid): ByteArray = uuid.toByteArray()
 
     @TypeConverter
-    fun toUuid(bytes: ByteArray): Uuid =
-        Uuid.fromByteArray(bytes)
+    fun toUuid(bytes: ByteArray): Uuid = Uuid.fromByteArray(bytes)
 }

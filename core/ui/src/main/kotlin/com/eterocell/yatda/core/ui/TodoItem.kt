@@ -25,19 +25,23 @@ fun TodoItem(
     onDelete: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onToggle() }
-            .padding(8.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clickable { onToggle() }
+                .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Checkbox(
             checked = todo.isCompleted,
             onCheckedChange = { onToggle() },
         )
-        Column(modifier = Modifier
-            .weight(1f)
-            .padding(start = 8.dp)) {
+        Column(
+            modifier =
+                Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp),
+        ) {
             Text(todo.title, style = MaterialTheme.typography.bodyLarge)
             todo.description?.let {
                 Text(it, style = MaterialTheme.typography.bodySmall)

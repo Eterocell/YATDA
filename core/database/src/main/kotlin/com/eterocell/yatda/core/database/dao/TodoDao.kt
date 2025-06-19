@@ -40,7 +40,13 @@ interface TodoDao {
     @Query("SELECT * FROM todo_items WHERE isImportant = 1 ORDER BY relevantInstant ASC")
     fun observeImportant(): Flow<List<TodoItemEntity>>
 
-    @Query("SELECT * FROM todo_items WHERE title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%' ORDER BY relevantInstant ASC")
+    @Query(
+        value = """
+        SELECT * FROM todo_items
+        WHERE title LIKE '%' || :query || '%'
+            OR description LIKE '%' || :query || '%'
+        ORDER BY relevantInstant ASC""",
+    )
     fun search(query: String): Flow<List<TodoItemEntity>>
 
     @Query("DELETE FROM todo_items WHERE isCompleted = 1")

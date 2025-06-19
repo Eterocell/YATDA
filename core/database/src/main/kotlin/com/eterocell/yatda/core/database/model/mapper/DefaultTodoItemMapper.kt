@@ -9,15 +9,14 @@ import javax.inject.Singleton
 import kotlin.uuid.Uuid
 
 @Singleton
-class DefaultTodoItemMapper @Inject constructor() : TodoItemMapper {
-    override fun entityToModel(entity: TodoItemEntity): TodoItem =
-        entity.asExternalModel()
+class DefaultTodoItemMapper
+    @Inject
+    constructor() : TodoItemMapper {
+        override fun entityToModel(entity: TodoItemEntity): TodoItem = entity.asExternalModel()
 
-    override fun modelToEntity(model: TodoItem): TodoItemEntity {
-        return if (model.id == null) {
+        override fun modelToEntity(model: TodoItem): TodoItemEntity = if (model.id == null) {
             model.asEntity(id = Uuid.random())
         } else {
             model.asEntity()
         }
     }
-}

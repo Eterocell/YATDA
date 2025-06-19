@@ -5,5 +5,6 @@ import com.eterocell.yatda.core.model.TodoItem
 
 interface TodoItemMapper {
     fun entityToModel(entity: TodoItemEntity): TodoItem
+
     fun modelToEntity(model: TodoItem): TodoItemEntity
 }

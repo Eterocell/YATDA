@@ -26,5 +26,5 @@ include(
     ":core:design",
     ":core:model",
     ":core:ui",
-    ":feature:todo"
+    ":feature:todo",
 )

@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataModule {
-
     @Binds
     internal abstract fun bindsTodoRepository(
         todoRepository: DefaultTodoRepository,
@@ -21,7 +20,5 @@ abstract class DataModule {
 
     @Binds
     @Singleton
-    internal abstract fun bindsTodoItemMapper(
-        todoItemMapper: DefaultTodoItemMapper
-    ): TodoItemMapper
+    internal abstract fun bindsTodoItemMapper(todoItemMapper: DefaultTodoItemMapper): TodoItemMapper
 }

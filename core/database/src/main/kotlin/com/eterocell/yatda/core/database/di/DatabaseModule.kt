@@ -13,14 +13,14 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object DatabaseModule {
-
     @Provides
     @Singleton
     fun providesYATDADatabase(
         @ApplicationContext context: Context,
-    ): YATDADatabase = Room.databaseBuilder(
-        context,
-        YATDADatabase::class.java,
-        "yatda-databse",
-    ).build()
+    ): YATDADatabase = Room
+        .databaseBuilder(
+            context,
+            YATDADatabase::class.java,
+            "yatda-databse",
+        ).build()
 }
