@@ -26,11 +26,11 @@ fun TodoCreationBottomSheet(
     val state = viewModel.uiState
 
     Column(
-        modifier = Modifier
-            .padding(16.dp)
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
     ) {
-
         Text(
             text = if (state.id == null) "Add Todo" else "Edit Todo",
             style = MaterialTheme.typography.titleLarge,
