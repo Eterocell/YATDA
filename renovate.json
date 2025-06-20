@@ -17,6 +17,12 @@
                 "/^com.google.devtools.ksp/",
                 "/^androidx.compose.compiler/"
             ]
+        },
+        {
+            "matchPackageNames": [
+                "com.google.guava:guava"
+            ],
+            "versioning": "regex:^(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
         }
     ]
 }
