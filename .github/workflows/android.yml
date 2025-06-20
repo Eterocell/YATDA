@@ -23,8 +23,6 @@ jobs:
           cache: 'gradle'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-home-cache-cleanup: true
       - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v4
         with:
@@ -35,7 +33,7 @@ jobs:
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v2
         with:
-          cmake-version: '3.31.5'
+          cmake-version: '4.0.2'
       - name: Spotless check
         run: ./gradlew spotlessCheck
       - name: Build debug apk with Gradle
