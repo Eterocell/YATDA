@@ -1,5 +1,5 @@
 plugins {
-    id("build-logic.android.library")
+    alias(libs.plugins.build.logic.android.library)
 }
 
 dependencies {

@@ -1,7 +1,7 @@
 plugins {
-    id("build-logic.android.library")
-    id("build-logic.android.room")
-    id("build-logic.android.hilt")
+    alias(libs.plugins.build.logic.android.library)
+    alias(libs.plugins.build.logic.android.room)
+    alias(libs.plugins.build.logic.android.hilt)
 }
 
 dependencies {

@@ -92,7 +92,7 @@ leakcanary = "2.14"
 okhttp = "5.0.0-alpha.16"
 okio = "3.13.0"
 retrofit = "3.0.0"
-robolectric = "4.14.1"
+robolectric = "4.15"
 spotless = "7.0.4"
 timber = "5.0.1"
 turbine = "1.2.1"
@@ -348,6 +348,17 @@ android-test = { id = "com.android.test", version.ref = "agp" }
 androidx-baseline-profile = { id = "androidx.baselineprofile", version.ref = "androidx-benchmark" }
 androidx-benchmark = { id = "androidx.benchmark", version.ref = "androidx-benchmark" }
 androidx-room = { id = "androidx.room", version.ref = "androidx-room" }
+build-logic-android-application = { id = "build-logic.android.application" }
+build-logic-android-base = { id = "build-logic.android.base" }
+build-logic-android-compose = { id = "build-logic.android.compose" }
+build-logic-android-hilt = { id = "build-logic.android.hilt" }
+build-logic-android-library = { id = "build-logic.android.library" }
+build-logic-android-native = { id = "build-logic.android.native" }
+build-logic-android-room = { id = "build-logic.android.room" }
+build-logic-kotlin-android = { id = "build-logic.kotlin.android" }
+build-logic-root-project = { id = "build-logic.root-project" }
+build-logic-root-project-base = { id = "build-logic.root-project.base" }
+build-logic-root-spotless = { id = "build-logic.root-project.spotless" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }

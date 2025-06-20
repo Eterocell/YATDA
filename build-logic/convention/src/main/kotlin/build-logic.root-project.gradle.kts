@@ -1,4 +1,5 @@
 import java.net.URI
+
 plugins {
     id("build-logic.root-project.base")
     id("build-logic.spotless")

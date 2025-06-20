@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.gradle.versions)
     alias(libs.plugins.version.catalog.update)
 
-    id("build-logic.root-project")
+    alias(libs.plugins.build.logic.root.project)
 }
 
 tasks.named("clean") {
