@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c1ffa0fb944dd1fc7647bc8890c2ab3d",
+    "identityHash": "a0aedd7e6afb91cc3e0c468a452ce3a0",
     "entities": [
       {
         "tableName": "todo_items",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` BLOB NOT NULL, `creationInstant` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT, `isCompleted` INTEGER NOT NULL, `completedDateInstant` INTEGER, `lastModifiedInstant` INTEGER NOT NULL, `relevantInstant` INTEGER NOT NULL, `isImportant` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` BLOB NOT NULL, `creationInstant` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT, `isCompleted` INTEGER NOT NULL, `completedDateInstant` INTEGER, `lastModifiedInstant` INTEGER NOT NULL, `relevantInstant` INTEGER, `isImportant` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -51,8 +51,7 @@
           {
             "fieldPath": "relevantInstant",
             "columnName": "relevantInstant",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "INTEGER"
           },
           {
             "fieldPath": "isImportant",
@@ -71,7 +70,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c1ffa0fb944dd1fc7647bc8890c2ab3d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a0aedd7e6afb91cc3e0c468a452ce3a0')"
     ]
   }
 }

@@ -15,7 +15,7 @@ data class TodoItemEntity(
     val isCompleted: Boolean,
     val completedDateInstant: Instant?,
     val lastModifiedInstant: Instant,
-    val relevantInstant: Instant,
+    val relevantInstant: Instant?,
     val isImportant: Boolean,
 )
 
