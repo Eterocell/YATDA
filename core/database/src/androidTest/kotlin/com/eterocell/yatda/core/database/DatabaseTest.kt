@@ -8,19 +8,20 @@ import org.junit.After
 import org.junit.Before
 
 internal abstract class DatabaseTest {
-
     private lateinit var db: YATDADatabase
     protected lateinit var todoDao: TodoDao
 
     @Before
     fun setup() {
-        db = run {
-            val context = ApplicationProvider.getApplicationContext<Context>()
-            Room.inMemoryDatabaseBuilder(
-                context,
-                YATDADatabase::class.java,
-            ).build()
-        }
+        db =
+            run {
+                val context = ApplicationProvider.getApplicationContext<Context>()
+                Room
+                    .inMemoryDatabaseBuilder(
+                        context,
+                        YATDADatabase::class.java,
+                    ).build()
+            }
         todoDao = db.todoDao()
     }
 

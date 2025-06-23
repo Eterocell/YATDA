@@ -8,7 +8,6 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 internal class TodoDaoTest : DatabaseTest() {
-
     @Test
     fun getTodos() = runTest {
         insertTodos()
@@ -22,11 +21,12 @@ internal class TodoDaoTest : DatabaseTest() {
     }
 
     private suspend fun insertTodos() {
-        val todos = listOf(
-            TodoItem(title = "1"),
-            TodoItem(title = "2"),
-            TodoItem(title = "3"),
-        )
+        val todos =
+            listOf(
+                TodoItem(title = "1"),
+                TodoItem(title = "2"),
+                TodoItem(title = "3"),
+            )
         todos.map { it.asEntity() }.forEach {
             todoDao.insert(it)
         }
