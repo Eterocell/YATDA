@@ -20,7 +20,11 @@ configureAndroidLibrary {
     // The resource prefix is derived from the module name,
     // so resources inside ":core:module1" must be prefixed with "core_module1_"
     resourcePrefix =
-        path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_")
+        path
+            .split("""\W""".toRegex())
+            .drop(1)
+            .distinct()
+            .joinToString(separator = "_")
             .lowercase() + "_"
 }
 
