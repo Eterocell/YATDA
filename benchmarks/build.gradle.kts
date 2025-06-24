@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ManagedVirtualDevice
+import com.eterocell.gradle.dsl.configureFlavors
 
 plugins {
     alias(libs.plugins.build.logic.android.test)
@@ -12,11 +13,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "APP_BUILD_TYPE_SUFFIX", "\"\"")
-        buildConfigField(
-            "String",
-            "APP_FLAVOR_SUFFIX",
-            "\"\"",
-        )
     }
 
     buildFeatures {
@@ -26,15 +22,15 @@ android {
     // Use the same flavor dimensions as the application to allow generating Baseline Profiles on prod,
     // which is more close to what will be shipped to users (no fake data), but has ability to run the
     // benchmarks on demo, so we benchmark on stable data.
-//    configureFlavors(this) { flavor ->
-//        buildConfigField(
-//            "String",
-//            "APP_FLAVOR_SUFFIX",
-//            "\"${flavor.applicationIdSuffix ?: ""}\""
-//        )
-//    }
+    configureFlavors(this) { flavor ->
+        buildConfigField(
+            "String",
+            "APP_FLAVOR_SUFFIX",
+            "\"${flavor.applicationIdSuffix ?: ""}\"",
+        )
+    }
 
-    testOptions.managedDevices.allDevices {
+    testOptions.managedDevices.devices {
         create<ManagedVirtualDevice>("pixel9Api35") {
             device = "Pixel 9"
             apiLevel = 35

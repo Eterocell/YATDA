@@ -4,6 +4,10 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DynamicFeatureExtension
 import com.android.build.api.dsl.TestExtension
+import com.android.build.api.variant.ApplicationAndroidComponentsExtension
+import com.android.build.api.variant.DynamicFeatureAndroidComponentsExtension
+import com.android.build.api.variant.LibraryAndroidComponentsExtension
+import com.android.build.api.variant.TestAndroidComponentsExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
@@ -46,6 +50,22 @@ fun Project.configureAndroidDynamicFeatures(block: DynamicFeatureExtension.() ->
 
 fun Project.configureAndroidTest(block: TestExtension.() -> Unit) =
     withAndroidTest { extensions.configure(block) }
+
+fun Project.configureApplicationAndroidComponents(block: ApplicationAndroidComponentsExtension.() -> Unit) {
+    withAndroidApplication { extensions.configure(block) }
+}
+
+fun Project.configureLibraryAndroidComponents(block: LibraryAndroidComponentsExtension.() -> Unit) {
+    withAndroidLibrary { extensions.configure(block) }
+}
+
+fun Project.configureDynamicFeatureAndroidComponents(block: DynamicFeatureAndroidComponentsExtension.() -> Unit) {
+    withAndroidDynamicFeature { extensions.configure(block) }
+}
+
+fun Project.configureTestAndroidComponents(block: TestAndroidComponentsExtension.() -> Unit) {
+    withAndroidTest { extensions.configure(block) }
+}
 
 fun Project.withBuildType(buildType: String, block: () -> Unit) {
     if (taskRequestContains(buildType)) block()

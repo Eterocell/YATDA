@@ -67,6 +67,7 @@ bouncycastle = "1.81"
 cbor = "0.9"
 coil = "3.2.0"
 conscrypt = "2.5.3"
+dependency-guard = "0.5.0"
 dokka = "2.0.0"
 firebase-bom = "33.15.0"
 firebase-crashlytics-plugin = "3.0.4"
@@ -299,6 +300,7 @@ firebase-perf-ktx = { module = "com.google.firebase:firebase-perf-ktx" }
 google-play-integrity = { module = "com.google.android.play:integrity", version.ref = "google-play-integrity" }
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin", version.ref = "kotlin" }
+gradle-plugin-dependency-guard = { module = "com.dropbox.dependency-guard:com.dropbox.dependency-guard.gradle.plugin", version.ref = "dependency-guard" }
 gradle-plugin-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
@@ -351,6 +353,7 @@ androidx-baseline-profile = { id = "androidx.baselineprofile", version.ref = "an
 androidx-benchmark = { id = "androidx.benchmark", version.ref = "androidx-benchmark" }
 androidx-room = { id = "androidx.room", version.ref = "androidx-room" }
 build-logic-android-application = { id = "build-logic.android.application" }
+build-logic-android-application-flavor = { id = "build-logic.android.application.flavor" }
 build-logic-android-base = { id = "build-logic.android.base" }
 build-logic-android-compose = { id = "build-logic.android.compose" }
 build-logic-android-hilt = { id = "build-logic.android.hilt" }
@@ -363,6 +366,7 @@ build-logic-root-project = { id = "build-logic.root-project" }
 build-logic-root-project-base = { id = "build-logic.root-project.base" }
 build-logic-root-spotless = { id = "build-logic.root-project.spotless" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+dependency-guard = { id = "com.dropbox.dependency-guard", version.ref = "dependency-guard" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebase-perf-plugin" }

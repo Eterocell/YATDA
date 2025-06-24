@@ -9,6 +9,7 @@ dependencies {
     implementation(libs.gradle.plugin.ksp)
     implementation(libs.gradle.plugin.room)
     implementation(libs.gradle.plugin.hilt)
+    implementation(libs.gradle.plugin.dependency.guard)
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.gradle.plugin.spotless)

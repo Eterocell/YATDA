@@ -1,8 +1,12 @@
+import com.eterocell.gradle.dsl.YATDABuildType
+
 plugins {
     alias(libs.plugins.build.logic.android.application)
     alias(libs.plugins.build.logic.android.compose)
     alias(libs.plugins.build.logic.android.room)
     alias(libs.plugins.build.logic.android.hilt)
+    alias(libs.plugins.build.logic.android.application.flavor)
+    alias(libs.plugins.androidx.baseline.profile)
 }
 
 android {
@@ -12,12 +16,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = YATDABuildType.DEBUG.applicationIdSuffix
+        }
         release {
-            isMinifyEnabled = false
+            applicationIdSuffix = YATDABuildType.RELEASE.applicationIdSuffix
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+            // Ensure Baseline Profile is fresh for release builds.
+            baselineProfile.automaticGenerationDuringBuild = true
         }
     }
     packaging {
@@ -26,6 +36,19 @@ android {
             excludes += "DebugProbesKt.bin"
         }
     }
+}
+
+baselineProfile {
+    // Don't build on every iteration of a full assemble.
+    // Instead enable generation directly for the release build variant.
+    automaticGenerationDuringBuild = false
+
+    // Make use of Dex Layout Optimizations via Startup Profiles
+    dexLayoutOptimization = true
+}
+
+dependencyGuard {
+    configuration("releaseRuntimeClasspath")
 }
 
 dependencies {
