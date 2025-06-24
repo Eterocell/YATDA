@@ -1,7 +1,7 @@
 import com.eterocell.gradle.dsl.configureAndroidCommon
+import com.eterocell.gradle.dsl.configureComposeCompiler
 import com.eterocell.gradle.dsl.libs
 import com.eterocell.gradle.dsl.withAndroid
-import com.eterocell.gradle.dsl.configureComposeCompiler
 
 plugins {
     id("org.jetbrains.kotlin.plugin.compose")
@@ -34,17 +34,22 @@ withAndroid {
 
 configureComposeCompiler {
     fun Provider<String>.onlyIfTrue() = flatMap { provider { it.takeIf(String::toBoolean) } }
+
     fun Provider<*>.relativeToRootProject(dir: String) = map {
         isolated.rootProject.projectDirectory
             .dir("build")
             .dir(projectDir.toRelativeString(rootDir))
     }.map { it.dir(dir) }
 
-    project.providers.gradleProperty("enableComposeCompilerMetrics").onlyIfTrue()
+    project.providers
+        .gradleProperty("enableComposeCompilerMetrics")
+        .onlyIfTrue()
         .relativeToRootProject("compose-metrics")
         .let(metricsDestination::set)
 
-    project.providers.gradleProperty("enableComposeCompilerReports").onlyIfTrue()
+    project.providers
+        .gradleProperty("enableComposeCompilerReports")
+        .onlyIfTrue()
         .relativeToRootProject("compose-reports")
         .let(reportsDestination::set)
 

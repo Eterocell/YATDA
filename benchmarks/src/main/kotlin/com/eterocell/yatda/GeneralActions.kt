@@ -51,6 +51,9 @@ fun MacrobenchmarkScope.getTopAppBar(): UiObject2 {
 /**
  * Waits for an object on the top app bar, passed in as [selector].
  */
-fun MacrobenchmarkScope.waitForObjectOnTopAppBar(selector: BySelector, timeout: Long = 2_000) {
+fun MacrobenchmarkScope.waitForObjectOnTopAppBar(
+    selector: BySelector,
+    timeout: Long = 2_000,
+) {
     getTopAppBar().wait(Until.hasObject(selector), timeout)
 }
