@@ -25,6 +25,7 @@ configureAndroidCommon {
         checkDependencies = true
         disable += "GradleDependency"
     }
+    testOptions.animationsDisabled = true
 }
 
 dependencies {

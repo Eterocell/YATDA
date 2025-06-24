@@ -48,7 +48,7 @@ baselineProfile {
 }
 
 dependencyGuard {
-    configuration("releaseRuntimeClasspath")
+    configuration("fossReleaseRuntimeClasspath")
 }
 
 dependencies {
