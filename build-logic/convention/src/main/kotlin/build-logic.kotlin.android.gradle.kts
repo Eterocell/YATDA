@@ -2,7 +2,7 @@ import com.eterocell.gradle.dsl.kotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
 }
 
 kotlinCompile {
@@ -15,6 +15,7 @@ kotlinCompile {
             listOf(
                 "-opt-in=kotlin.RequiresOptIn",
                 "-opt-in=kotlinx.coroutines.FlowPreview",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlin.uuid.ExperimentalUuidApi",
             )
     }

@@ -20,6 +20,7 @@ dependencyResolutionManagement {
 rootProject.name = "YATDA"
 include(
     ":app",
+    ":benchmarks",
     ":core:common",
     ":core:data",
     ":core:database",

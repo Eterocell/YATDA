@@ -3,12 +3,14 @@ package com.eterocell.gradle.dsl
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DynamicFeatureExtension
+import com.android.build.api.dsl.TestExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.extra
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.register
 
@@ -20,6 +22,9 @@ fun Project.withAndroidLibrary(block: Plugin<in Any>.() -> Unit) =
 
 fun Project.withAndroidDynamicFeature(block: Plugin<in Any>.() -> Unit) =
     plugins.withId("com.android.dynamic-feature", block)
+
+fun Project.withAndroidTest(block: Plugin<in Any>.() -> Unit) =
+    plugins.withId("com.android.test", block)
 
 fun Project.withAndroid(block: Plugin<in Any>.() -> Unit) {
     withAndroidApplication(block)
@@ -39,6 +44,9 @@ fun Project.configureAndroidLibrary(block: LibraryExtension.() -> Unit) =
 fun Project.configureAndroidDynamicFeatures(block: DynamicFeatureExtension.() -> Unit) =
     withAndroidDynamicFeature { extensions.configure(block) }
 
+fun Project.configureAndroidTest(block: TestExtension.() -> Unit) =
+    withAndroidTest { extensions.configure(block) }
+
 fun Project.withBuildType(buildType: String, block: () -> Unit) {
     if (taskRequestContains(buildType)) block()
 }
@@ -54,3 +62,10 @@ fun Project.withAndroidSourcesJar() {
         }
     }
 }
+
+val Project.androidNamespace
+    get() =
+        path
+            .replace(":", ".")
+            .let { if (it == ".app") "" else it.replace("-", ".") }
+            .let { extra["yatda.project.group"] as String + it }

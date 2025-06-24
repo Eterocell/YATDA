@@ -1,17 +1,19 @@
 import com.eterocell.gradle.dsl.androidNamespace
-import com.eterocell.gradle.dsl.configureAndroidCommon
+import com.eterocell.gradle.dsl.configureAndroidTest
+import com.eterocell.gradle.dsl.configureGradleManagedDevices
 import com.eterocell.gradle.dsl.libs
 
 plugins {
-    id("com.android.base")
     id("build-logic.kotlin.android")
+    id("com.android.test")
 }
 
-configureAndroidCommon {
+configureAndroidTest {
     namespace = androidNamespace
     compileSdk = 36
     buildToolsVersion = "36.0.0"
     defaultConfig {
+        targetSdk = 36
         minSdk = 24
     }
     compileOptions {
@@ -19,12 +21,7 @@ configureAndroidCommon {
         targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
-    lint {
-        xmlReport = true
-        sarifReport = true
-        checkDependencies = true
-        disable += "GradleDependency"
-    }
+    configureGradleManagedDevices(this)
 }
 
 dependencies {
