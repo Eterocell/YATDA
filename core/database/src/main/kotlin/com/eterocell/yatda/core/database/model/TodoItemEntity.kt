@@ -3,7 +3,7 @@ package com.eterocell.yatda.core.database.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.eterocell.yatda.core.model.TodoItem
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
 @Entity(tableName = "todo_items")

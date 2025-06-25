@@ -18,5 +18,12 @@ kotlinCompile {
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlin.uuid.ExperimentalUuidApi",
             )
+        optIn.addAll(
+            "kotlin.RequiresOptIn",
+            "kotlinx.coroutines.FlowPreview",
+            "kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "kotlin.uuid.ExperimentalUuidApi",
+            "kotlin.time.ExperimentalTime",
+        )
     }
 }

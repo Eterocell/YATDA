@@ -1,7 +1,7 @@
 package com.eterocell.yatda.core.model
 
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
+import kotlin.time.Clock
+import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
 data class TodoItem(

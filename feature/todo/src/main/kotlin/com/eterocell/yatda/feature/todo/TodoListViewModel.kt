@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Clock
 import javax.inject.Inject
+import kotlin.time.Clock
 
 @HiltViewModel
 @OptIn(ExperimentalCoroutinesApi::class)

@@ -5,8 +5,8 @@ import com.eterocell.yatda.core.database.model.mapper.TodoItemMapper
 import com.eterocell.yatda.core.model.TodoItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.datetime.Clock
 import javax.inject.Inject
+import kotlin.time.Clock
 import kotlin.uuid.Uuid
 
 internal class DefaultTodoRepository
