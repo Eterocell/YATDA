@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalBottomSheet
@@ -29,7 +28,6 @@ import com.eterocell.yatda.core.model.TodoItem
 import com.eterocell.yatda.core.ui.TodoItem
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodoListScreen(
     modifier: Modifier = Modifier,
@@ -73,7 +71,7 @@ fun TodoListScreen(
         floatingActionButton = {
             ExtendedFloatingActionButton(
                 onClick = {
-                    creationViewModel.uiState = TodoItem()
+                    creationViewModel.newItemState = TodoItem()
                     showCreationSheet = true
                     coroutineScope.launch { sheetState.show() }
                 },

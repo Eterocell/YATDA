@@ -18,20 +18,20 @@ class TodoCreationViewModel
     constructor(
         private val repository: TodoRepository,
     ) : ViewModel() {
-        var uiState by mutableStateOf(TodoItem())
+        var newItemState by mutableStateOf(TodoItem())
 
         fun updateTitle(newTitle: String) {
-            uiState = uiState.copy(title = newTitle)
+            newItemState = newItemState.copy(title = newTitle)
         }
 
         fun updateDescription(newDesc: String) {
-            uiState = uiState.copy(description = newDesc)
+            newItemState = newItemState.copy(description = newDesc)
         }
 
         fun loadTodo(id: Uuid) {
             viewModelScope.launch {
                 val todo = repository.getTodoById(id) ?: return@launch
-                uiState =
+                newItemState =
                     TodoItem(
                         id = todo.id,
                         title = todo.title,
@@ -42,12 +42,12 @@ class TodoCreationViewModel
 
         fun save() {
             viewModelScope.launch {
-                if (uiState.title.isNotBlank()) {
+                if (newItemState.title.isNotBlank()) {
                     val item =
                         TodoItem(
-                            id = uiState.id,
-                            title = uiState.title,
-                            description = uiState.description,
+                            id = newItemState.id,
+                            title = newItemState.title,
+                            description = newItemState.description,
                         )
                     repository.upsert(item)
                 }

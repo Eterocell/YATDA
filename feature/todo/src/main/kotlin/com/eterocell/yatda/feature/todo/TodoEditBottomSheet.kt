@@ -23,7 +23,7 @@ fun TodoCreationBottomSheet(
     onDismiss: () -> Unit,
     onSaveSuccess: () -> Unit,
 ) {
-    val state = viewModel.uiState
+    val state = viewModel.newItemState
 
     Column(
         modifier =
