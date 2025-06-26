@@ -17,6 +17,7 @@ kotlinCompile {
             "kotlinx.coroutines.ExperimentalCoroutinesApi",
             "kotlin.uuid.ExperimentalUuidApi",
             "kotlin.time.ExperimentalTime",
+            "androidx.compose.material3.ExperimentalMaterial3Api",
         )
     }
 }
