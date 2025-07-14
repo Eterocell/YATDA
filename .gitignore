@@ -1,7 +1,21 @@
-*.iml
 .gradle
 /local.properties
-/.idea
+*. iml
+/.idea/**
+!/.idea/icon.png
+!/.idea/copyright/
+!/.idea/copyright/**
+!/.idea/codeStyles/
+!/.idea/codeStyles/**
+!/.idea/dictionaries/
+!/.idea/dictionaries/**
+!/.idea/inspectionProfiles/
+!/.idea/inspectionProfiles/**
+!/.idea/runConfigurations/
+!/.idea/runConfigurations/**
+!/.idea/jsonSchemas.xml
+!/.idea/externalDependencies.xml
+!/.idea/detekt.xml
 .DS_Store
 **/build/**
 /captures
