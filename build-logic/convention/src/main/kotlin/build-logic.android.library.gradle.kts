@@ -25,7 +25,8 @@ configureAndroidLibrary {
             .drop(1)
             .distinct()
             .joinToString(separator = "_")
-            .lowercase() + "_"
+            .lowercase() +
+        "_"
 }
 
 configureLibraryAndroidComponents {
