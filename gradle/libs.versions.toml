@@ -85,7 +85,7 @@ kotlinpoet = "2.2.0"
 kotlinx-atomicfu = "0.29.0"
 kotlinx-collections-immutable = "0.4.0"
 kotlinx-coroutines = "1.10.2"
-kotlinx-datetime = "0.7.1-0.6.x-compat"
+kotlinx-datetime = "0.7.1"
 kotlinx-serialization = "1.9.0"
 ksp = "2.2.0-2.0.2"
 ktlint = "1.7.1"
@@ -292,11 +292,11 @@ coil-test = { module = "io.coil-kt.coil3:coil-test", version.ref = "coil" }
 coil-video = { module = "io.coil-kt.coil3:coil-video", version.ref = "coil" }
 conscrypt-android = { module = "org.conscrypt:conscrypt-android", version.ref = "conscrypt" }
 dokka-android-documentation-plugin = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }
-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
-firebase-cloud-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
-firebase-perf-ktx = { module = "com.google.firebase:firebase-perf-ktx" }
+firebase-cloud-messaging = { module = "com.google.firebase:firebase-messaging" }
+firebase-crashlytics-ndk = { module = "com.google.firebase:firebase-crashlytics-ndk" }
+firebase-perf = { module = "com.google.firebase:firebase-perf" }
 google-play-integrity = { module = "com.google.android.play:integrity", version.ref = "google-play-integrity" }
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin", version.ref = "kotlin" }
