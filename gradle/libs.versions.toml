@@ -98,7 +98,7 @@ robolectric = "4.16"
 spotless = "8.0.0"
 timber = "5.0.1"
 turbine = "1.2.1"
-version-catalog-update = "1.0.0"
+version-catalog-update = "1.0.1"
 
 [libraries]
 aboutlibraries-compose-m3 = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "aboutlibraries" }
