@@ -17,7 +17,7 @@ configureAndroidCommon {
     }
     externalNativeBuild {
         cmake {
-            version = "4.1.1"
+            version = "4.1.2"
         }
     }
 }

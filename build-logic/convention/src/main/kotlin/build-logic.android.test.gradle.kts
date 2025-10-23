@@ -11,7 +11,7 @@ plugins {
 configureAndroidTest {
     namespace = androidNamespace
     compileSdk = 36
-    buildToolsVersion = "36.0.0"
+    buildToolsVersion = "36.1.0"
     defaultConfig {
         targetSdk = 36
         minSdk = 24
