@@ -187,13 +187,18 @@ fun YATDATheme(
     // Color scheme
     val colorScheme =
         when {
-            androidTheme -> if (darkTheme) DarkAndroidColorScheme else LightAndroidColorScheme
+            androidTheme -> {
+                if (darkTheme) DarkAndroidColorScheme else LightAndroidColorScheme
+            }
+
             !disableDynamicTheming && supportsDynamicTheming() -> {
                 val context = LocalContext.current
                 if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
             }
 
-            else -> if (darkTheme) DarkDefaultColorScheme else LightDefaultColorScheme
+            else -> {
+                if (darkTheme) DarkDefaultColorScheme else LightDefaultColorScheme
+            }
         }
     // Gradient colors
     val emptyGradientColors = GradientColors(container = colorScheme.surfaceColorAtElevation(2.dp))
@@ -217,14 +222,17 @@ fun YATDATheme(
         )
     val backgroundTheme =
         when {
-            androidTheme ->
+            androidTheme -> {
                 if (darkTheme) {
                     DarkAndroidBackgroundTheme
                 } else {
                     LightAndroidBackgroundTheme
                 }
+            }
 
-            else -> defaultBackgroundTheme
+            else -> {
+                defaultBackgroundTheme
+            }
         }
     val tintTheme =
         when {
