@@ -12,11 +12,17 @@ plugins {
 
 configureAndroidApplication {
     defaultConfig {
-        applicationId = extra["yatda.project.group"].toString()
+        applicationId =
+            findProperty("yatda.project.group")?.toString()
+                ?: error("Property 'yatda.project.group' not found in gradle.properties")
         targetSdk = 36
 
-        versionCode = extra["yatda.project.version.code"].toString().toInt()
-        versionName = extra["yatda.project.version.name"].toString()
+        versionCode =
+            findProperty("yatda.project.version.code")?.toString()?.toInt()
+                ?: error("Property 'yatda.project.version.code' not found in gradle.properties")
+        versionName =
+            findProperty("yatda.project.version.name")?.toString()
+                ?: error("Property 'yatda.project.version.name' not found in gradle.properties")
     }
 
     configureAppSigningConfigsForRelease()

@@ -1,5 +1,12 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
+buildscript {
+    dependencies {
+        classpath(libs.gradle.plugin.kotlin)
+        classpath(libs.gradle.plugin.ksp)
+    }
+}
+
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false

@@ -1,4 +1,3 @@
-import com.eterocell.gradle.dsl.androidNamespace
 import com.eterocell.gradle.dsl.configureAndroidTest
 import com.eterocell.gradle.dsl.configureGradleManagedDevices
 import com.eterocell.gradle.dsl.libs
@@ -14,7 +13,7 @@ configureAndroidTest {
     buildToolsVersion = "36.1.0"
     defaultConfig {
         targetSdk = 36
-        minSdk = 24
+        minSdk = 29
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -27,3 +26,15 @@ configureAndroidTest {
 dependencies {
     add("coreLibraryDesugaring", libs.findLibrary("android-desugar-jdk-libs").get())
 }
+
+val Project.androidNamespace: String
+    get() {
+        val group =
+            findProperty("yatda.project.group") as? String
+                ?: error("Property 'yatda.project.group' not found in gradle.properties")
+        val suffix =
+            path
+                .replace(":", ".")
+                .let { if (it == ".app") "" else it.replace("-", ".") }
+        return group + suffix
+    }

@@ -8,15 +8,11 @@ plugins {
 }
 
 configureAndroidCommon {
-    defaultConfig.vectorDrawables { useSupportLibrary = true }
-    buildFeatures {
-        compose = true
-    }
+    defaultConfig.vectorDrawables.apply { useSupportLibrary = true }
+    buildFeatures.compose = true
 
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
+    testOptions.unitTests.apply {
+        isIncludeAndroidResources = true
     }
 }
 

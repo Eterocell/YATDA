@@ -1,4 +1,3 @@
-import com.eterocell.gradle.dsl.androidNamespace
 import com.eterocell.gradle.dsl.configureAndroidCommon
 import com.eterocell.gradle.dsl.libs
 
@@ -8,18 +7,23 @@ plugins {
 }
 
 configureAndroidCommon {
-    namespace = androidNamespace
-    compileSdk = 36
+    namespace = project.androidNamespace
+    compileSdk {
+        version =
+            release(36) {
+                minorApiLevel = 1
+            }
+    }
     buildToolsVersion = "36.1.0"
-    defaultConfig {
+    defaultConfig.apply {
         minSdk = 24
     }
-    compileOptions {
+    compileOptions.apply {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
-    lint {
+    lint.apply {
         xmlReport = true
         sarifReport = true
         checkDependencies = true
@@ -31,3 +35,15 @@ configureAndroidCommon {
 dependencies {
     add("coreLibraryDesugaring", libs.findLibrary("android-desugar-jdk-libs").get())
 }
+
+val Project.androidNamespace: String
+    get() {
+        val group =
+            findProperty("yatda.project.group") as? String
+                ?: error("Property 'yatda.project.group' not found in gradle.properties")
+        val suffix =
+            path
+                .replace(":", ".")
+                .let { if (it == ".app") "" else it.replace("-", ".") }
+        return group + suffix
+    }
