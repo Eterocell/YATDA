@@ -15,7 +15,7 @@ configureAndroidApplication {
         applicationId =
             findProperty("yatda.project.group")?.toString()
                 ?: error("Property 'yatda.project.group' not found in gradle.properties")
-        targetSdk = 36
+        targetSdk = 37
 
         versionCode =
             findProperty("yatda.project.version.code")?.toString()?.toInt()

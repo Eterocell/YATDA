@@ -9,12 +9,9 @@ plugins {
 configureAndroidCommon {
     namespace = project.androidNamespace
     compileSdk {
-        version =
-            release(36) {
-                minorApiLevel = 1
-            }
+        version = release(37)
     }
-    buildToolsVersion = "36.1.0"
+    buildToolsVersion = "37.0.0"
     defaultConfig.apply {
         minSdk = 24
     }
