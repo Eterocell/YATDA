@@ -1,5 +1,5 @@
 [versions]
-aboutlibraries = "15.0.2"
+aboutlibraries = "15.0.3"
 accompanist = "0.37.3"
 agp = "9.2.1"
 android-desugar-jdk-libs = "2.1.5"
