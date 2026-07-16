@@ -1,7 +1,7 @@
 [versions]
 aboutlibraries = "15.0.3"
 accompanist = "0.37.3"
-agp = "9.2.1"
+agp = "9.3.0"
 android-desugar-jdk-libs = "2.1.5"
 androidx-activity = "1.13.0"
 androidx-annotation = "1.10.0"
